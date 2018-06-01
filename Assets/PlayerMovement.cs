@@ -33,10 +33,10 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)) {
+        if(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.touchCount > 0) {
             player.AddForce(new Vector3(0,jumpForce,0), mode: ForceMode.Impulse);
         }
-        if (Input.GetKey(KeyCode.DownArrow) && !isgrounded)
+        if ((Input.GetKey(KeyCode.DownArrow) || Input.touchCount == 0)&& !isgrounded)
         {
             player.AddForce(new Vector3(0, -jumpForce, 0), mode: ForceMode.Impulse);
         }
