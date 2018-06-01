@@ -28,10 +28,12 @@ public class LoseLogic : MonoBehaviour
     IEnumerator LoseFlow() {
         finishScreen.SetActive(true);
         Time.timeScale = 0.1f;
+        Time.fixedDeltaTime = 0.02F * Time.timeScale;
         yield return new WaitForSeconds(0.2f);
         wasted.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02F;
         SceneManager.LoadScene(0);
 
 
